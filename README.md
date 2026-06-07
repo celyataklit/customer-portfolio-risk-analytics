@@ -1,2 +1,444 @@
-# customer-portfolio-risk-analytics
-End-to-end banking risk analytics platform using Python and SQL for customer segmentation, risk scoring, anomaly detection, portfolio monitoring and fraud alert prioritization.
+# Customer & Portfolio Risk Analytics Platform
+
+## Overview
+
+This project simulates a banking risk analytics environment by transforming raw transaction data into a structured analytical platform for customer profiling, portfolio monitoring, anomaly detection, and fraud-risk assessment.
+
+The project follows a complete analytics workflow:
+
+- Data Cleaning & Preparation (Python)
+- Analytical Data Modeling (SQL)
+- Customer Segmentation
+- Risk Scoring
+- Transaction Anomaly Detection
+- Portfolio Risk Monitoring
+- Fraud Alert Prioritization
+
+The objective is to demonstrate practical skills used in Risk Analytics, Fraud Analytics, Financial Crime Monitoring, and Data Analytics roles within banking and fintech environments.
+
+---
+
+## Business Problem
+
+Financial institutions process thousands of customer transactions daily.
+
+Risk and fraud teams need to:
+
+- Monitor customer behavior
+- Detect unusual transaction patterns
+- Identify high-risk customers
+- Prioritize fraud investigations
+- Monitor portfolio exposure
+- Support data-driven risk decisions
+
+This project builds a simplified risk analytics platform capable of supporting these objectives.
+
+---
+
+## Dataset
+
+The dataset contains banking transaction records with the following information:
+
+| Field | Description |
+|---------|-------------|
+| TransactionID | Unique transaction identifier |
+| CustomerID | Unique customer identifier |
+| CustomerDOB | Customer date of birth |
+| CustGender | Customer gender |
+| CustLocation | Customer location |
+| CustAccountBalance | Account balance |
+| TransactionDate | Transaction date |
+| TransactionTime | Transaction time |
+| TransactionAmount | Transaction value |
+
+---
+
+# Project Architecture
+
+```text
+Raw Banking Data
+       │
+       ▼
+Python Data Cleaning
+       │
+       ▼
+MySQL Analytics Layer
+       │
+       ├── Customer Segmentation
+       ├── Portfolio Analytics
+       ├── Risk Scoring
+       ├── Anomaly Detection
+       ├── Risk Monitoring
+       └── Fraud Alert Prioritization
+```
+
+---
+
+# Technologies Used
+
+## Python
+
+- Pandas
+- Data Cleaning
+- Data Validation
+- Data Preparation
+
+## SQL (MySQL)
+
+- Views
+- CTEs
+- Window Functions
+- CASE Statements
+- Aggregations
+- Risk Scoring Logic
+- Fraud Analytics
+
+## Analytics Concepts
+
+- Customer Segmentation
+- Portfolio Monitoring
+- Risk Analytics
+- Fraud Detection
+- Dimensional Modeling
+- Star Schema Design
+
+---
+
+# Python Data Preparation
+
+### Notebook
+
+`customer_portfolio_data_preparation.ipynb`
+
+### Main Tasks
+
+- Data loading
+- Data quality checks
+- Missing value verification
+- Duplicate detection
+- Data type validation
+- Feature preparation
+- Export of cleaned dataset
+
+### Output
+
+`bank_transactions_clean.csv`
+
+---
+
+# SQL Analytics Layer
+
+## 01. Portfolio KPI Analysis
+
+**File:** `portoflio_kpis.sql`
+
+### Business Objective
+
+Create key portfolio performance indicators.
+
+### Metrics
+
+- Total Transactions
+- Total Customers
+- Total Volume
+- Average Transaction Amount
+
+---
+
+## 02. Advanced Customer Analytics
+
+**File:** `advanced_customer_analytics.sql`
+
+### Business Objective
+
+Analyze customer behavior and transaction patterns.
+
+### Metrics
+
+- Customer activity
+- Transaction frequency
+- Customer value analysis
+- Spending behavior
+
+---
+
+## 03. Risk Monitoring Analytics
+
+**File:** `risk_monitoring_analytics.sql`
+
+### Business Objective
+
+Identify potentially risky customer activity.
+
+### Metrics
+
+- High-value transactions
+- Large exposure customers
+- Transaction concentration
+- Risk indicators
+
+---
+
+## 04. Reporting Layer
+
+**File:** `04_powerbi_reporting_tables.sql`
+
+### Business Objective
+
+Prepare reporting views for analytical consumption.
+
+### Purpose
+
+- Dashboard-ready datasets
+- Aggregated reporting structures
+- Business KPIs
+
+---
+
+## 05. Dimensional Modeling
+
+**File:** `05_powerbi_dimension_tables.sql`
+
+### Business Objective
+
+Implement a star-schema structure.
+
+### Dimensions Created
+
+#### dim_customer
+
+Customer reference table.
+
+#### dim_location
+
+Geographical dimension.
+
+#### dim_date
+
+Calendar dimension.
+
+#### fact_transactions
+
+Central transaction fact table.
+
+### Skills Demonstrated
+
+- Data Warehouse Concepts
+- Star Schema Design
+- Dimensional Modeling
+
+---
+
+## 06. Customer Risk Scoring
+
+**File:** `06_customer_risk_scoring.sql`
+
+### Business Objective
+
+Assign risk scores to customers based on transaction behavior.
+
+### Features
+
+- Transaction volume analysis
+- High-value transaction monitoring
+- Account balance evaluation
+- Risk categorization
+
+### Risk Categories
+
+- Low Risk
+- Medium Risk
+- High Risk
+
+### Skills Demonstrated
+
+- CTEs
+- Business Rules
+- Risk Modeling
+
+---
+
+## 07. Transaction Anomaly Detection
+
+**File:** `07_transaction_anomaly_detection.sql`
+
+### Business Objective
+
+Detect abnormal customer transaction behavior.
+
+### Techniques Used
+
+#### AVG() OVER()
+
+Customer average behavior analysis.
+
+#### LAG()
+
+Previous transaction comparison.
+
+### Anomalies Detected
+
+- Unusual High Transaction
+- Sudden Spending Increase
+
+### Skills Demonstrated
+
+- Window Functions
+- Behavioral Analytics
+- Fraud Detection Logic
+
+---
+
+## 08. Portfolio Risk Monitoring
+
+**File:** `08_risk_portfolio_monitoring.sql`
+
+### Business Objective
+
+Monitor customer exposure and portfolio concentration.
+
+### Techniques Used
+
+#### RANK()
+
+Customer ranking by exposure.
+
+#### NTILE()
+
+Risk bucket assignment.
+
+### Portfolio Segments
+
+- Very High Exposure
+- High Exposure
+- Medium Exposure
+- Low Exposure
+
+### Skills Demonstrated
+
+- Portfolio Analytics
+- Risk Segmentation
+- Customer Ranking
+
+---
+
+## 09. Fraud Alert Dashboard Layer
+
+**File:** `09_fraud_alert_dashboard.sql`
+
+### Business Objective
+
+Prioritize suspicious transactions for investigation.
+
+### Techniques Used
+
+#### ROW_NUMBER()
+
+Alert prioritization.
+
+#### DENSE_RANK()
+
+Customer risk ranking.
+
+#### PERCENT_RANK()
+
+Transaction percentile analysis.
+
+### Alert Categories
+
+- Critical Alert
+- High Alert
+- Medium Alert
+
+### Skills Demonstrated
+
+- Fraud Monitoring
+- Alert Prioritization
+- Investigation Support Analytics
+
+---
+
+# Advanced SQL Concepts Demonstrated
+
+## CTEs
+
+```sql
+WITH customer_metrics AS (...)
+```
+
+## Window Functions
+
+```sql
+ROW_NUMBER()
+RANK()
+DENSE_RANK()
+NTILE()
+PERCENT_RANK()
+LAG()
+AVG() OVER()
+```
+
+## Risk Classification
+
+```sql
+CASE WHEN ...
+```
+
+## Dimensional Modeling
+
+```sql
+Fact Tables
+Dimension Tables
+Star Schema
+```
+
+---
+
+# Key Skills Demonstrated
+
+## Data Analytics
+
+- Data Cleaning
+- Data Transformation
+- KPI Development
+- Reporting
+
+## Risk Analytics
+
+- Customer Risk Scoring
+- Portfolio Monitoring
+- Exposure Analysis
+
+## Fraud Analytics
+
+- Anomaly Detection
+- Alert Prioritization
+- Transaction Monitoring
+
+## SQL
+
+- Advanced Queries
+- Window Functions
+- CTEs
+- Dimensional Modeling
+
+---
+
+# Future Improvements
+
+Planned enhancements:
+
+- Interactive Power BI Dashboards
+- Machine Learning Fraud Detection Models
+- Customer Lifetime Value Analysis
+- Predictive Risk Scoring
+- Automated Fraud Alert Monitoring
+
+---
+
+# Author
+
+**Celya Taklit**
+
+Finance & Risk Management | Data Analytics | Risk Analytics | Fraud Analytics | SQL | Python
+
